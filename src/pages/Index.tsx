@@ -10,14 +10,10 @@ import { BarChart3, PlusCircle, List } from 'lucide-react';
 
 const Index = () => {
   // Clear any existing data and start fresh
-  const [expenses, setExpenses] = useLocalStorage<Expense[]>('expenses', []);
+const [expenses, setExpenses] = useLocalStorage<any[]>('expenses', []);
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
 
-  // Clear localStorage on component mount to ensure fresh start
-  useEffect(() => {
-    localStorage.removeItem('expenses');
-    setExpenses([]);
-  }, []);
+ 
 
   const generateId = () => {
     return Date.now().toString() + Math.random().toString(36).substr(2, 9);
